@@ -1,14 +1,19 @@
 var m = require('mithril')
+var Squash = require('../models/Squash')
 
-exports.controller = function (options) {}
+exports.controller = function (options) {
+  var ctrl = this;
+  ctrl.squashes = Squash.getAll();
+}
 
 exports.view = function (ctrl, options) {
-  // replace with api call
-  var squashes = ['squash1','squash2','squash3']
-  return m('.feed', [
-    m('h2', options.title),
-    m('ul', [
-      squashes.map(n => m('li', n))
+    return m('.feed', [
+      m('h2', options.title),
+      ctrl.squashes().map(function(squash, idx){
+        return m('div', [
+          m('h3', squash.title),
+          m('p', squash.description)
+        ])
+      })
     ])
-  ])
 }
