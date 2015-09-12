@@ -20,6 +20,7 @@ Profile.view = function (ctrl, options) {
             m('br'),
             m('span', 'Name: ' + options.user.name),
         ]),
+
         m('.userSquashes', [
             m.component(Feed, { squashes: options.squashes}),
             m('h5', options.squashes.title),

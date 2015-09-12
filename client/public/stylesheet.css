@@ -1,13 +1,17 @@
 
 .app h1{
     text-align: center;
+    background-color: rgb(255,122,011)
 }
 .user{
     float: left;
     color: blue;
     display: inline;
     background-color: #dcdcdc;
+}
 
+img{
+      border-radius: 50%;
 }
 
 .User span{
