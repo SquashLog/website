@@ -17,6 +17,43 @@ $ npm start
 
 Now visit [localhost:4000](http://localhost:4000/)
 
+Go to terminal and brew install orientdb
+
+```
+brew install orientdb
+```
+
+Then you want to access orientdb console
+
+```
+orientdb-console
+```
+
+And create a local database
+
+```
+CREATE DATABASE plocal:/usr/local/Cellar/orientdb/2.0.11/libexec/databases/squash_test/squash_test
+```
+
+Then connect to your database
+
+```
+CONNECT plocal:/usr/local/Cellar/orientdb/2.0.11/libexec/databases/squash_test/squash_test
+```
+
+After that, set your environment variables to these credentials
+
+The default username and password when creating a local db is "admin".
+
+Set your environment variables with the command
+
+```
+export DB_USER=admin DB_PASSWORD=admin DB_HOST=localhost DB_NAME=squash_test
+```
+Create a new database called 'squash_dev' using the same instructions above in order to create a development database.
+
+After that your local database is up and running for testing, cheers!
+
 ## Jump-starting your App
 
 Check the [wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
