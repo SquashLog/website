@@ -32,14 +32,15 @@ m.route(document.getElementById('app'), '/', {
 
   '/:username': {
     controller: function() {
-      console.log('here')
       this.user = User.find( m.route.param('username') );
+      this.userSquashes = Squash.filter(11)
       this.squashes = Squash.all();
     },
     view: function (ctrl) {
+
       return withLayout([
 
-        m.component(Profile, { squashes: ctrl.squashes(), user: ctrl.user() })
+        m.component(Profile, { squashes: ctrl.squashes(), user: ctrl.user(), userSquashes: ctrl.userSquashes() })
       ]);
     },
   },

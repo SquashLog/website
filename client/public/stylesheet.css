@@ -14,12 +14,21 @@ img{
       border-radius: 50%;
 }
 
+.User{
+    width: 50%;
+}
+
 .User span{
     float: right;
 }
 
-.userSquashes{
+.allSquashes{
     float: right;
     background-color: #dcdcdc;
 
+}
+
+
+.userSquashes{
+    float: left;
 }
