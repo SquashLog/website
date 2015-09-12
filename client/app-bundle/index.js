@@ -5,6 +5,7 @@ var User   = require('./models/User');
 var Squash = require('./models/Squash');
 
 var Feed   = require('./components/Feed');
+var Profile   = require('./components/Profile');
 var SquashPage = require('./components/SquashPage');
 
 
@@ -25,6 +26,20 @@ m.route(document.getElementById('app'), '/', {
     view: function (ctrl) {
       return withLayout([
         m.component(Feed, { squashes: ctrl.squashes() })
+      ]);
+    },
+  },
+
+  '/:username': {
+    controller: function() {
+      console.log('here')
+      this.user = User.find( m.route.param('username') );
+      this.squashes = Squash.all();
+    },
+    view: function (ctrl) {
+      return withLayout([
+
+        m.component(Profile, { squashes: ctrl.squashes(), user: ctrl.user() })
       ]);
     },
   },
