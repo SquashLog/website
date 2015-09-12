@@ -25,7 +25,7 @@ describe('User API', function() {
     accessToken = { scopes: [] }
   })
 
-  it('outputs all squashes that the user has chirped', function(done) {
+  it('outputs all user objects in the dataset', function(done) {
     request(app)
       .get('/users')
       .set('Authorization', 'Bearer test_oauth_token')
@@ -40,5 +40,36 @@ describe('User API', function() {
         done()
       })
   })
+
+  it('outputs all squashes from a specific user', function(done) {
+    request(app)
+      .get('/users/1/squashes')
+      .set('Authorization', 'Bearer test_oauth_token')
+      .set('Accept', 'application/json')
+      .end(function(err, res) {
+        if (err) done(err);
+
+        var squashes = res.body;
+
+        expect(squashes).to.be.an('object')
+        done()
+      })
+  })
+
+  it('outputs all followers of a specific user', function(done) {
+    request(app)
+      .get('/users/1/followers')
+      .set('Authorization', 'Bearer test_oauth_token')
+      .set('Accept', 'application/json')
+      .end(function(err, res) {
+        if (err) done(err);
+
+        var followers = res.body;
+
+        expect(followers).to.be.an('object')
+        done()
+      })
+  })
+
 
 })
