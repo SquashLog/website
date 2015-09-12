@@ -12,9 +12,10 @@ router.post('/', function(req, res){
 
 });
 
-
-//get all user squahes
+//get all user squashes
 router.get('/:id/', function(req, res){
     res.send(Users.getSquashes(1));
 })
+
+//squashes/comments
 
