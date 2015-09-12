@@ -35,7 +35,10 @@ describe('Squashes API', function() {
 
         var squashes = res.body;
 
-        expect(squashes).to.be.an('object')
+        expect(squashes).to.be.an('array')
+        expect(squashes[0].user).to.be.an('object')
+        expect(squashes[1].content).to.not.be.empty;
+
         done()
       })
     })
