@@ -13,9 +13,9 @@ User.vm = function(attrs) {
   }
 }
 
-User.find = function (id) {
+User.find = function (username) {
   // TODO karmakettle: this api url might change later--confirm
   //return m.request({ method: 'GET', url: '/users/' + id });
-  //return m.deferred.resolve({ id: 10, name: "Alice" });
+  return m.deferred.resolve({ name: "Alice", username: 'alice' });
 }
 
