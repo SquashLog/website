@@ -13,7 +13,6 @@ Squash.vm = function(attrs) {
 Squash.find = function(id) {
    //return m.deferred.resolve( squashFixture.find(s => s.id == id) );
   return m.request({method: 'GET', url: '/api/squashes/' + id}).then(function(squash){
-    console.log(squash)
     return squash
   })
 }
