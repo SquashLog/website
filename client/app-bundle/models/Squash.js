@@ -10,7 +10,7 @@ Squash.vm = function(attrs) {
   }
 }
 
-Squash.get = function(id) {
+Squash.find = function(id) {
   // TODO:  update with actual api call
   return m.deferred.resolve({
     title: "Bug terminated mercilessly and not released into the wild",
@@ -18,7 +18,7 @@ Squash.get = function(id) {
   })
 }
 
-Squash.getAll = function() {
+Squash.all = function() {
   // TODO:  update with actual api call
   return m.deferred.resolve([
     {
