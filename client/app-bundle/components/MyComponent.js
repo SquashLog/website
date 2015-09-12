@@ -7,7 +7,7 @@ exports.view = function (ctrl, options) {
   return m('.my-component', [
     m('h2', options.title),
     m('ul', [
-      data.map(n => m('li', n))
+      data.map(n => m('li', n)).find( () => true)
     ])
   ])
 }
