@@ -8,13 +8,13 @@ var Path = require('path')
 var browserify = require('browserify-middleware')
 var babelify = require("babelify")
 
-var shared = ['mithril', './ext']
-app.get('/js/vendor-bundle.js', browserify(shared))
+var vendorLibs = ['mithril']
+app.get('/js/vendor-bundle.js', browserify(vendorLibs))
 
 app.get('/js/app-bundle.js',
   browserify('./client/app-bundle/index.js', {
-    transform: babelify,
-    external: shared
+    transform: [babelify],
+    bundleExternal: false
   }))
 
 // Non-js static files
