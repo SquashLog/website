@@ -7,11 +7,13 @@ var Squashes =  [ {user: {uid: 1, username: 'john314', avatarUrl: 'http://www.av
                   {user: {uid: 2, username: 'eric122', avatarUrl: 'http://www.avatarsdb.com/animals/cats/cat-rain-avatar-52022.htm'},title: 'I had an epiphany', content: 'I just had to press edit undo, and know everything works again!'},
                   {user: {uid: 3, username: 'mrKITTTYYYY!', avatarUrl: 'http://www.avatarsdb.com/animals/cats/cat-rain-avatar-52040.htm'},title: 'I really had a bad bug', content: 'BUT MY KITTY SQUASHED IT NOM NOM NOM NOM!'}
                 ];
-module.exports.squashes = function () {
+module.exports.squashes = function (id) {
     return  Squashes;
 }
-module.exports.comments = function () {
-    return  Squashes.map("");
+
+
+module.exports.comments = function (id) {
+    return  Squashes.map(function(x){return x.user.uid == +id ? x.comments : null;})
 }
 
 
