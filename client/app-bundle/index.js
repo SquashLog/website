@@ -1,4 +1,4 @@
-require('./ext')
+require('../../ext')
 var m = require('mithril')
 
 var User   = require('./models/User');
