@@ -27,7 +27,8 @@
     "boilerplate",
     "browserify",
     "express",
-    "mithril"
+    "mithril",
+    "orientjs"
   ],
   "bugs": {
     "url": "https://github.com/mindeavor/node-catapult/issues"
