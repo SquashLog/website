@@ -1,11 +1,15 @@
-var browserify = require('browserify-middleware')
 var express = require('express')
 var app = express()
 var Path = require('path')
 
 // Provide a browserified file at a specified path
+var browserify = require('browserify-middleware')
+var babelify = require("babelify")
+
 app.get('/js/app-bundle.js',
-  browserify('./client/app-bundle/index.js'))
+  browserify('./client/app-bundle/index.js', {
+    transform: babelify
+  }))
 
 // Non-js static files
 var assetFolder = Path.resolve(__dirname, '../client/public')
