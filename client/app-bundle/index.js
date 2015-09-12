@@ -1,6 +1,11 @@
 require('./ext')
 var m = require('mithril')
-var Feed = require('./components/Feed')
+
+var User   = require('./models/User');
+var Squash = require('./models/Squash');
+
+var Feed   = require('./components/Feed');
+var SquashPage = require('./components/SquashPage');
 
 
 window.App = {}
@@ -8,10 +13,42 @@ window.App = {}
 App.controller = function () {}
 
 App.view = function (ctrl) {
-  return [
-    m('h1', 'SquashLog'),
-    m.component(Feed, { title: 'Welcome to SquashLog!' })
-  ]
 }
 
-m.mount(document.getElementById('app'), App)
+m.route.mode = 'pathname';
+m.route(document.getElementById('app'), '/', {
+
+  '/': {
+    controller: function() {
+      this.squashes = Squash.all();
+    },
+    view: function (ctrl) {
+      return withLayout([
+        m.component(Feed, { squashes: ctrl.squashes() })
+      ]);
+    },
+  },
+
+
+  '/:username/squash/:squashId': {
+    controller: function() {
+      this.user = User.find( m.route.param('username') );
+      this.squash = Squash.find( m.route.param('squashId') );
+    },
+    view: function(ctrl) {
+      return withLayout([
+        m('h2', ctrl.user().name),
+        m.component(SquashPage, { squash: ctrl.squash() })
+      ]);
+    },
+  }
+
+
+})
+
+function withLayout (content) {
+  return m('.app', [
+    m('h1', m('a[href=/]', { config: m.route }, 'SquashLog')),
+    content
+  ]);
+}
