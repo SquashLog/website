@@ -3,11 +3,12 @@ var m = require('mithril')
 exports.controller = function (options) {}
 
 exports.view = function (ctrl, options) {
-  var data = [10,20,30]
-  return m('.my-component', [
+  // replace with api call
+  var squashes = ['squash1','squash2','squash3']
+  return m('.feed', [
     m('h2', options.title),
     m('ul', [
-      data.map(n => m('li', n))
+      squashes.map(n => m('li', n))
     ])
   ])
 }
