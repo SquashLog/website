@@ -18,3 +18,11 @@ module.exports.getSquashes = function (id) {
     if (testUser.uid === +id) return {squashes: testUser.squashes};
     else return 'No such user, yet!'
 }
+
+
+//TO DO
+module.exports.getFollowersSquashes = function (id) {
+    if (testUser.uid === +id) return {squashes: testUser.squashes};
+    else return 'No such user, yet!'
+}
+
