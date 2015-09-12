@@ -4,25 +4,25 @@ var Users = module.exports;
 var testUser = {uid: 1, username: 'MeyerSauce21', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] }
 
 
-module.exports.find = function (id) {
-    if (testUser.uid === +id) return testUser;
+Users.find = function (username) {
+    console.log("reached this point in Users.js!")
+    if (testUser.username === username) return testUser;
+    else return {error: 'No such user, yet!'};
+}
+
+Users.followers = function (username) {
+    if (testUser.username === username) return {followers: testUser.followers};
     else return 'No such user, yet!'
 }
 
-module.exports.followers = function (id) {
-    if (testUser.uid === +id) return {followers: testUser.followers};
-    else return 'No such user, yet!'
-}
-
-module.exports.squashes = function (id) {
-    if (testUser.uid === +id) return {squashes: testUser.squashes};
+Users.squashes = function (username) {
+    if (testUser.username === username) return {squashes: testUser.squashes};
     else return 'No such user, yet!'
 }
 
 
 //TO DO
-module.exports.squashFeed = function (id) {
-    if (testUser.uid === +id) return {squashes: testUser.squashes};
+Users.squashFeed = function (username) {
+    if (testUser.username === username) return {squashes: testUser.squashes};
     else return 'No such user, yet!'
 }
-
