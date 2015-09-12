@@ -1,5 +1,5 @@
 "use strict";
-exports.name = "squashlog01";
+exports.name = "add_user_github_id_and_constraints";
 
 exports.up = function (db) {
   // @todo implementation
@@ -12,11 +12,11 @@ exports.up = function (db) {
   	.then(function (response){
     console.log(response.results);
   });
-  db.exec('CREATE PROPERTY User.githubid string')
+  db.exec('CREATE PROPERTY User.github_id string')
   	.then(function (response){
     console.log(response.results);
   });
-  db.exec('ALTER PROPERTY User.githubid MANDATORY true')
+  db.exec('ALTER PROPERTY User.github_id MANDATORY true')
   	.then(function (response){
     console.log(response.results);
   });
@@ -28,7 +28,7 @@ exports.up = function (db) {
     console.log('Created index: ', index);
   });
   db.index.create({
-    name: 'User.githubid',
+    name: 'User.github_id',
     type: 'unique'
   })
   .then(function(index){
@@ -47,11 +47,11 @@ exports.down = function (db) {
   	.then(function (response){
     console.log(response.results);
   });
-  User.property.drop('githubid')
+  User.property.drop('github_id')
   .then(function () {
     console.log('Property deleted.');
   });
-  db.exec('ALTER PROPERTY User.githubid MANDATORY false')
+  db.exec('ALTER PROPERTY User.github_id MANDATORY false')
   	.then(function (response){
     console.log(response.results);
   });
@@ -59,7 +59,7 @@ exports.down = function (db) {
   	.then(function (response){
     console.log(response.results);
   });
-  db.exec('DROP INDEX User.githubid')
+  db.exec('DROP INDEX User.github_id')
   	.then(function (response){
     console.log(response.results);
   });
