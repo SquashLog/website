@@ -5,7 +5,7 @@ var router = module.exports = express.Router();
 
 //gets all Squashes with user information
 router.get('/', function(req, res){
-    res.send(Squashes.getSquashes(1));
+    res.send(Squashes.squashes(1));
 });
 
 router.post('/', function(req, res){
@@ -14,7 +14,11 @@ router.post('/', function(req, res){
 
 //get all user squashes
 router.get('/:id/', function(req, res){
-    res.send(Squashes.getSquashes(1));
+    res.send(Squashes.squashes(1));
+})
+
+router.get('/:id/comments', function(req, res){
+    res.send(Squashes.squashes(1));
 })
 
 //squashes/comments
