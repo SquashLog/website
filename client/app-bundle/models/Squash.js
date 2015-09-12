@@ -15,6 +15,11 @@ Squash.find = function(id) {
   return m.deferred.resolve( squashFixture.find(s => s.id == id) );
 }
 
+Squash.filter = function(id) {
+
+  return m.deferred.resolve( squashFixture.filter(s => s.id == id) );
+}
+
 Squash.all = function() {
   // TODO:  update with actual api call
   return m.deferred.resolve(squashFixture)
