@@ -33,7 +33,15 @@ Then connect to your database
 
 ```CONNECT <database-url> <user-name> <user-password>```
 
-After that, you should set your environment variables to these credentials and run a connection script in db.js: coming soon
+After that, set your environment variables to these credentials
+
+The default username and password when creating a local db is ```admin```.
+
+Set your environment variables with the command
+
+```export DB_USER=admin DB_PASSWORD=admin DB_HOST=localhost DB_NAME=<your database name>```
+
+After that your local database is up and running for testing, cheers!
 
 ## Jump-starting your App
 
