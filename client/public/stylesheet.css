@@ -1,0 +1,21 @@
+
+.app h1{
+    text-align: center;
+}
+.user{
+    float: left;
+    color: blue;
+    display: inline;
+    background-color: #dcdcdc;
+
+}
+
+.User span{
+    float: right;
+}
+
+.userSquashes{
+    float: right;
+    background-color: #dcdcdc;
+
+}
