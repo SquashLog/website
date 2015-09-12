@@ -1,21 +1,30 @@
+require('../ext')
 var express = require('express')
 var app = express()
 var Path = require('path')
-var db = require('./db.js')
 
 // Provide a browserified file at a specified path
 var browserify = require('browserify-middleware')
 var babelify = require("babelify")
 
+var shared = ['mithril', './ext']
+app.get('/js/vendor-bundle.js', browserify(shared))
+
 app.get('/js/app-bundle.js',
   browserify('./client/app-bundle/index.js', {
-    transform: babelify
+    transform: babelify,
+    external: shared
   }))
 
 // Non-js static files
 var assetFolder = Path.resolve(__dirname, '../client/public')
 app.use(express.static(assetFolder))
 
+//set up router for api endpoints
+var router = express.Router();
+
+app.use('/api/users', require('./api/users-api'));
+app.use('/api/squashes', require('./api/squashes-api'));
 
 //
 // Support browser history pushstate.

@@ -1,3 +1,4 @@
+require('./ext')
 var m = require('mithril')
 var Feed = require('./components/Feed')
 
