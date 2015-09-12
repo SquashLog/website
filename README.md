@@ -17,6 +17,24 @@ $ npm start
 
 Now visit [localhost:4000](http://localhost:4000/)
 
+Go to terminal and brew install orientdb
+
+```brew install orientdb```
+
+Then you want to access orientdb console
+
+```orientdb-console```
+
+And create a local database
+
+```CREATE DATABASE plocal:/usr/local/Cellar/orientdb/2.0.11/libexec/databases/<your database name>/<your database name>```
+
+Then connect to your database
+
+```CONNECT <database-url> <user-name> <user-password>```
+
+After that, you should set your environment variables to these credentials and run a connection script in db.js: coming soon
+
 ## Jump-starting your App
 
 Check the [wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
