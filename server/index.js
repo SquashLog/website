@@ -2,7 +2,7 @@ require('../ext')
 var express = require('express')
 var app = express()
 var Path = require('path')
-var db = require('./lib/db.js')
+//var db = require('./lib/db.js')
 
 // Provide a browserified file at a specified path
 var browserify = require('browserify-middleware')
