@@ -59,5 +59,9 @@ exports.down = function (db) {
   .then(function () {
     console.log('Property deleted.');
   });
+  db.exec('DROP CLASS User')
+  .then(function (response){
+    console.log(response.results);
+  });
 };
 
