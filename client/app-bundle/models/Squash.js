@@ -11,17 +11,13 @@ Squash.vm = function(attrs) {
 }
 
 Squash.find = function(squashId) {
-   //return m.deferred.resolve( squashFixture.find(s => s.id == id) );
-  return m.request({method: 'GET', url: '/api/squashes/' + squashId}).then(function(squash){
-    return squash
-  })
+   console.log("in Squash.js??", squashId);
+  return m.request({method: 'GET', url: '/api/squashes/' + squashId});
 }
 
 Squash.all = function() {
    //return m.deferred.resolve(squashFixture)
-  return m.request({method: 'GET', url: '/api/squashes/'}).then(function(squashes){
-    return squashes
-  })
+  return m.request({method: 'GET', url: '/api/squashes/'});
 }
 
 var squashFixture = [
