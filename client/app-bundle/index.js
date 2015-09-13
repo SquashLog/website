@@ -7,6 +7,8 @@ var Squash = require('./models/Squash');
 var Feed   = require('./components/Feed');
 var Profile   = require('./components/Profile');
 var SquashPage = require('./components/SquashPage');
+var Chat = require('./components/chat')
+
 
 
 window.App = {}
@@ -25,7 +27,8 @@ m.route(document.getElementById('app'), '/', {
     },
     view: function (ctrl) {
       return withLayout([
-        m.component(Feed, { squashes: ctrl.squashes() })
+        m.component(Feed, { squashes: ctrl.squashes() }),
+        m.component(Chat)
       ]);
     },
   },
@@ -39,7 +42,6 @@ m.route(document.getElementById('app'), '/', {
     view: function (ctrl) {
 
       return withLayout([
-
         m.component(Profile, { squashes: ctrl.squashes(), user: ctrl.user(), userSquashes: ctrl.userSquashes() })
       ]);
     },
@@ -64,10 +66,13 @@ m.route(document.getElementById('app'), '/', {
 
 function withLayout (content) {
   return m('.app', [
-    m('h1', [
-      m('a[href=/]', { config: m.route }, 'SquashLog'),
-      m('.signIn', m('a[href=/auth/github]','Sign in With Github')),
-      ]),
-    content
+    m('.feed-container', [
+      m('h1', m('a[href=/]', { config: m.route }, m('img[src=/SquashLog.png]'))),
+      content,
+    ]),
+    m('.sign-in', m('a[href=/auth/github]', [
+      m('p', 'Sign in With Github'),
+      m('img[src=/githubLogo.png]')
+    ]))
   ]);
 }

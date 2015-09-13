@@ -1,0 +1,53 @@
+@import "../../../bourbon/bourbon";
+@import "../../../neat/neat";
+
+$transparent-background-white: rgba(255,255,255,0.8);
+
+body {
+  background-image: url('http://previews.123rf.com/images/rtsubin/rtsubin1304/rtsubin130400006/18906935-Striped-gray-concrete-wall-background-texture-Stock-Photo.jpg');
+}
+
+a {
+  text-decoration: none;
+  color: #3F392D;
+}
+
+div#app {
+  height: 100%;
+}
+
+div.app {
+  @include outer-container;
+  height: 100%;
+  line-height: 22px;
+  text-align: center;
+}
+
+div.feed-container {
+  @include span-columns(5 of 6);
+  background-color: $transparent-background-white;
+  height: 100%;
+
+  img {
+    box-shadow: 5px 5px 2px grey;
+  }
+}
+
+.squash {
+  @include outer-container();
+
+  .squash-content {
+    @include span-columns(8);
+    @include shift(2);
+    border-bottom: 1px solid grey;
+  }
+}
+
+div.sign-in {
+  @include span-columns(1 of 6);
+  background-color: $transparent-background-white;
+  display: block;
+  font-size: 20px;
+  padding-bottom: 50px;
+  margin-top: 5em;
+}
