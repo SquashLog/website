@@ -38,6 +38,11 @@ div.feed-container {
   div.feed-container img {
     box-shadow: 5px 5px 2px grey; }
 
+.add-squash {
+  zoom: 25%;
+  height: 2px;
+  width: 2px; }
+
 .squash {
   max-width: 68em;
   margin-left: auto;

@@ -35,6 +35,12 @@ div.feed-container {
   }
 }
 
+.add-squash{
+    zoom: 25%;
+    height: 2px;
+    width: 2px;
+  }
+
 .squash {
   @include outer-container();
 
