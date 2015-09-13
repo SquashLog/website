@@ -12,13 +12,13 @@ Users.find = function (username) {
 }
 
 Users.followers = function (username) {
-    if (testUsers.username === username) return {followers: testUser.followers};
-    else return 'No such user, yet!'
+    var followers = testUsers.filter(function(user) { return user.username === username; })[0].followers;
+    return { followers: followers };
 }
 
 Users.squashes = function (username) {
-    if (testUsers.username === username) return {squashes: testUser.squashes};
-    else return 'No such user, yet!'
+    var squashes = testUsers.filter(function(user) { return user.username === username; })[0].squashes;
+    return {squashes: squashes};
 }
 
 
