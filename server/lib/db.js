@@ -11,4 +11,7 @@ var options = { method: 'POST',
 exports.exec = function (query) {
   var req = Object.assign({ body: query } , options)
   return rp(req)
+    .then(function (result) {
+      return JSON.parse(result).result[0]
+    })
 }

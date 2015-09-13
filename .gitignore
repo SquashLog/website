@@ -1,7 +1,3 @@
 node_modules/
-<<<<<<< HEAD
 migrations/.migrate
 orientdb/
-=======
-migrations/.migrate
->>>>>>> Add User Model methods
