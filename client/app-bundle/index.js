@@ -39,7 +39,6 @@ m.route(document.getElementById('app'), '/', {
     view: function (ctrl) {
 
       return withLayout([
-
         m.component(Profile, { squashes: ctrl.squashes(), user: ctrl.user(), userSquashes: ctrl.userSquashes() })
       ]);
     },
@@ -68,6 +67,9 @@ function withLayout (content) {
       m('h1', m('a[href=/]', { config: m.route }, m('img[src=/SquashLog.png]'))),
       content,
     ]),
-    m('.sign-in', m('a[href=/auth/github]','Sign in With Github'))
+    m('.sign-in', m('a[href=/auth/github]', [
+      m('p', 'Sign in With Github'),
+      m('img[src=/githubLogo.png]')
+    ]))
   ]);
 }

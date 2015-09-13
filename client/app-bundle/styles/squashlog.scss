@@ -33,10 +33,21 @@ div.feed-container {
   }
 }
 
+.squash {
+  @include outer-container();
+
+  .squash-content {
+    @include span-columns(8);
+    @include shift(2);
+    border-bottom: 1px solid grey;
+  }
+}
+
 div.sign-in {
   @include span-columns(1 of 6);
   background-color: $transparent-background-white;
   display: block;
-  padding: 45px;
+  font-size: 20px;
+  padding-bottom: 50px;
   margin-top: 5em;
 }
