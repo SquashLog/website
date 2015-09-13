@@ -1,6 +1,7 @@
 : ${NODE_ENV:=development}
 : ${DB_USER:=admin}
 : ${DB_PASSWORD:=admin}
+: ${DB_URL:=http://localhost:2480/}
 : ${DB_NAME:=squash_$NODE_ENV}
 
 echo "Migrating $DB_NAME"
