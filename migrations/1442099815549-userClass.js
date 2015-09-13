@@ -20,7 +20,7 @@ var command = function(str){
       console.log("Command Sent Successfully");
     })
     .catch(function (response) {
-      console.log(response);
+      console.log(response.name, "\n", response.message);
     });
 }
 'use strict'

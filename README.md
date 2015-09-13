@@ -54,6 +54,13 @@ Create a new database called 'squash_dev' using the same instructions above in o
 
 After that your local database is up and running for testing, cheers!
 
+## Migrating
+
+```bash
+$ npm run migrate
+$ NODE_ENV=test npm run migrate
+```
+
 ## Jump-starting your App
 
 Check the [wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
