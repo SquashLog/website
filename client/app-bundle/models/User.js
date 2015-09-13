@@ -14,8 +14,13 @@ User.vm = function(attrs) {
 }
 
 User.find = function (username) {
-  // TODO karmakettle: this api url might change later--confirm
-  //return m.request({ method: 'GET', url: '/users/' + id });
-  return m.deferred.resolve({ name: "Alice", username: 'alice', avatarUrl: 'http://www.avatarsdb.com/avatars/pink_kitty.gif' });
+  return m.request({ method: 'GET', url: '/api/users/' + username }).then(function(user){
+    return user;
+  });
 }
 
+User.squashes = function(username) {
+  return m.request({ method: 'GET', url: '/api/users/' + username + '/squashes/' }).then(function(squashes){
+    return squashes;
+  });
+}

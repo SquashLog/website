@@ -10,19 +10,13 @@ Squash.vm = function(attrs) {
   }
 }
 
-Squash.find = function(id) {
-  // TODO:  update with actual api call
-  return m.deferred.resolve( squashFixture.find(s => s.id == id) );
-}
-
-Squash.filter = function(id) {
-
-  return m.deferred.resolve( squashFixture.filter(s => s.id == id) );
+Squash.find = function(squashId) {
+  return m.request({method: 'GET', url: '/api/squashes/' + squashId});
 }
 
 Squash.all = function() {
-  // TODO:  update with actual api call
-  return m.deferred.resolve(squashFixture)
+   //return m.deferred.resolve(squashFixture)
+  return m.request({method: 'GET', url: '/api/squashes/'});
 }
 
 var squashFixture = [

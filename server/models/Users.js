@@ -1,28 +1,32 @@
 var Promise = require('bluebird');
 var Users = module.exports;
 
-var testUser = {uid: 1, username: 'MeyerSauce21', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] }
+var testUsers = [{uid: 1, name: 'Beavis', username: 'MeyerSauce21', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] },
+    {uid: 1, name: 'Butthead', username: 'eric122', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] },
+    {uid: 1, name: 'Bungholio', username: 'mrKITTTYYYY!', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] }
+  ]
 
-
-module.exports.find = function (id) {
-    if (testUser.uid === +id) return testUser;
-    else return 'No such user, yet!'
+Users.all = function () {
+    return testUsers;
 }
 
-module.exports.followers = function (id) {
-    if (testUser.uid === +id) return {followers: testUser.followers};
-    else return 'No such user, yet!'
+Users.find = function (username) {
+    return testUsers.filter(function(user) { return user.username === username; })[0];
 }
 
-module.exports.squashes = function (id) {
-    if (testUser.uid === +id) return {squashes: testUser.squashes};
-    else return 'No such user, yet!'
+Users.followers = function (username) {
+    var followers = testUsers.filter(function(user) { return user.username === username; })[0].followers;
+    return { followers: followers };
+}
+
+Users.squashes = function (username) {
+    var user = testUsers.filter(function(user) { return user.username === username; })[0];
+    return { squashes: user.squashes };
 }
 
 
 //TO DO
-module.exports.squashFeed = function (id) {
-    if (testUser.uid === +id) return {squashes: testUser.squashes};
+Users.squashFeed = function (username) {
+    if (testUser.username === username) return {squashes: testUser.squashes};
     else return 'No such user, yet!'
 }
-
