@@ -41,5 +41,4 @@ app.get('/*', function(req, res){
   res.sendFile( assetFolder + '/index.html' )
 })
 
-app.listen(port)
 console.log("Listening on port", port)
