@@ -1,57 +1,141 @@
-/*
-Error: File to import not found or unreadable: ../../../bourbon/bourbon.
-       Load path: /Users/dYale/Desktop/hackathon/website/client/app-bundle/styles
-        on line 1 of client/app-bundle/styles/squashlog.scss
+html {
+  box-sizing: border-box; }
 
-1: @import "../../../bourbon/bourbon";
-2: @import "../../../neat/neat";
-3: 
-4: $transparent-background-white: rgba(255,255,255,0.8);
-5: 
-6: body {
+*, *::after, *::before {
+  box-sizing: inherit; }
 
-Backtrace:
-client/app-bundle/styles/squashlog.scss:1
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:45:in `import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:28:in `imported_file'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:37:in `css_import?'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/engine.rb:378:in `_render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/engine.rb:295:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/listener.rb:252:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: ../../../bourbon/bourbon.\A        Load path: /Users/dYale/Desktop/hackathon/website/client/app-bundle/styles\A         on line 1 of client/app-bundle/styles/squashlog.scss\A \A 1: @import \"../../../bourbon/bourbon\";\A 2: @import \"../../../neat/neat\";\A 3: \A 4: $transparent-background-white: rgba(255,255,255,0.8);\A 5: \A 6: body {"; }
+body {
+  background-image: url("http://previews.123rf.com/images/rtsubin/rtsubin1304/rtsubin130400006/18906935-Striped-gray-concrete-wall-background-texture-Stock-Photo.jpg"); }
+
+a {
+  text-decoration: none;
+  color: #3F392D; }
+
+div#app {
+  height: 100%; }
+
+div.app {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  line-height: 22px;
+  text-align: center; }
+  div.app::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+div.feed-container {
+  float: left;
+  display: block;
+  margin-right: 4.82916%;
+  width: 82.52847%;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 100%; }
+  div.feed-container:last-child {
+    margin-right: 0; }
+  div.feed-container img {
+    box-shadow: 5px 5px 2px grey; }
+
+.squash {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .squash::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .squash .squash-content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+    border-bottom: 1px solid grey; }
+    .squash .squash-content:last-child {
+      margin-right: 0; }
+
+.newSquash {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 91.4702%;
+  margin-left: 4.2649%;
+  background-color: rgba(255, 255, 255, 0.81);
+  color: #95AF73; }
+  .newSquash h3 {
+    float: left; }
+  .newSquash h4 {
+    float: left; }
+  .newSquash::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .newSquash:last-child {
+    margin-right: 0; }
+  .newSquash form {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%;
+    margin-left: 4.2649%; }
+    .newSquash form:last-child {
+      margin-right: 0; }
+    .newSquash form textarea {
+      float: left;
+      display: block;
+      margin-right: 2.57751%;
+      width: 90.67477%;
+      border: 3px solid #cccccc;
+      padding: 5px;
+      font-family: Tahoma, sans-serif;
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      resize: none;
+      outline: none;
+      box-shadow: 2px 2px 1px #95AF73; }
+      .newSquash form textarea:last-child {
+        margin-right: 0; }
+    .newSquash form textarea.description {
+      height: 200px; }
+    .newSquash form .buffer {
+      margin-top: 20px;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .newSquash form .buffer:last-child {
+        margin-right: 0; }
+    .newSquash form button {
+      float: left;
+      display: block;
+      margin-right: 2.57751%;
+      width: 25.39818%;
+      margin-top: 20px;
+      margin-right: 20px;
+      color: #95AF73;
+      outline: none;
+      width: 15em;
+      height: 3em;
+      top: 100%; }
+      .newSquash form button:last-child {
+        margin-right: 0; }
+
+div.sign-in {
+  float: left;
+  display: block;
+  margin-right: 4.82916%;
+  width: 12.64237%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: block;
+  font-size: 20px;
+  padding-bottom: 50px;
+  margin-top: 5em; }
+  div.sign-in:last-child {
+    margin-right: 0; }
+
+/*# sourceMappingURL=squashlog.css.map */
