@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon server/ --ignore client/",
     "test": ".bin/run-tests.sh",
-    "db-migrate": ".bin/migrate.sh"
+    "db-migrate": ".bin/migrate.sh",
+    "travis-migrate": ".bin/travis-migrate.sh"
   },
   "author": "Gilbert <gilbertbagrza@gmail.com>",
   "license": "MIT",
