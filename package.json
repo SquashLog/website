@@ -5,7 +5,8 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon server/ --ignore client/",
-    "test": ".bin/run-tests.sh"
+    "test": ".bin/run-tests.sh",
+    "db-migrate": ".bin/migrate.sh"
   },
   "author": "Gilbert <gilbertbagrza@gmail.com>",
   "license": "MIT",
