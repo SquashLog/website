@@ -7,6 +7,8 @@ var Squash = require('./models/Squash');
 var Feed   = require('./components/Feed');
 var Profile   = require('./components/Profile');
 var SquashPage = require('./components/SquashPage');
+var Chat = require('./components/chat')
+
 
 
 window.App = {}
@@ -25,7 +27,8 @@ m.route(document.getElementById('app'), '/', {
     },
     view: function (ctrl) {
       return withLayout([
-        m.component(Feed, { squashes: ctrl.squashes() })
+        m.component(Feed, { squashes: ctrl.squashes() }),
+        m.component(Chat)
       ]);
     },
   },

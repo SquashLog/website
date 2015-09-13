@@ -1,5 +1,7 @@
 var m = require('mithril')
 var Squash = require('../models/Squash')
+var Chat = require('../components/chat')
+
 
 var SquashPage = module.exports;
 
