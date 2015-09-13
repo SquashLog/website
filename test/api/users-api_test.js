@@ -35,8 +35,8 @@ describe('User API', function() {
 
         var user = res.body;
 
-        expect(user).to.be.an('object')
-        expect(user.uid).to.be.a('number')
+        expect(user).to.be.an('array')
+        expect(user[0].uid).to.be.a('number')
         done()
       })
   })

@@ -6,6 +6,9 @@ var testUsers = [{uid: 1, name: 'Beavis', username: 'MeyerSauce21', password: 'C
     {uid: 1, name: 'Bungholio', username: 'mrKITTTYYYY!', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] }
   ]
 
+Users.all = function () {
+    return testUsers;
+}
 
 Users.find = function (username) {
     return testUsers.filter(function(user) { return user.username === username; })[0];
@@ -18,7 +21,7 @@ Users.followers = function (username) {
 
 Users.squashes = function (username) {
     var user = testUsers.filter(function(user) { return user.username === username; })[0];
-    return {squashes: user.squashes};
+    return { squashes: user.squashes };
 }
 
 
