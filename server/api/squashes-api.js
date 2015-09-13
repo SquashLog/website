@@ -13,12 +13,12 @@ router.post('/', function(req, res){
 });
 
 //get all user squashes
-router.get('/:id/', function(req, res){
-    res.send(Squashes.squashes(req.params.id));
+router.get('/:squashId/', function(req, res){
+    res.send(Squashes.find(req.params.squashId));
 })
 
-router.get('/:id/comments', function(req, res){
-    res.send(Squashes.comments(req.params.id));
+router.get('/:squashId/comments', function(req, res){
+    res.send(Squashes.comments(req.params.squashId));
 })
 
 //squashes/comments

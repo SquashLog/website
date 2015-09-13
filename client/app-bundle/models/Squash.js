@@ -10,9 +10,9 @@ Squash.vm = function(attrs) {
   }
 }
 
-Squash.find = function(id) {
+Squash.find = function(squashId) {
    //return m.deferred.resolve( squashFixture.find(s => s.id == id) );
-  return m.request({method: 'GET', url: '/api/squashes/' + id}).then(function(squash){
+  return m.request({method: 'GET', url: '/api/squashes/' + squashId}).then(function(squash){
     return squash
   })
 }
@@ -24,7 +24,7 @@ Squash.filter = function(id) {
 
 Squash.all = function() {
    //return m.deferred.resolve(squashFixture)
-  return m.request({method: 'GET', url: '/api/squashes'}).then(function(squashes){
+  return m.request({method: 'GET', url: '/api/squashes/'}).then(function(squashes){
     return squashes
   })
 }

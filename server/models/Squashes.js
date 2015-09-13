@@ -7,11 +7,14 @@ var sampleSquashes =  [ {squashId: 1, user: {uid: 1, username: 'MeyerSauce21', a
                   {squashId: 3, user: {uid: 3, username: 'mrKITTTYYYY!', avatarUrl: 'http://www.avatarsdb.com/animals/cats/cat-rain-avatar-52040.htm'},title: 'I really had a bad bug', content: 'BUT MY KITTY SQUASHED IT NOM NOM NOM NOM!'}
                 ]
 
-Squashes.squashes = function (id) {
-    if (id) return sampleSquashes[0];
-    return sampleSquashes;
+Squashes.squashes = function() {
+  return sampleSquashes;
 }
 
-Squashes.comments = function (id) {
-  return  Squashes.map(function(x){return x.user.uid == +id ? x.comments : null;})
+Squashes.find = function(squashId) {
+  return sampleSquashes.filter(function(x){return x.squashId == squashId;});
+}
+
+Squashes.comments = function(id) {
+  return  sampleSquashes.map(function(x){return x.user.uid == +id ? x.comments : null;})
 }

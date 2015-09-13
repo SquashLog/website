@@ -5,7 +5,6 @@ var testUser = {uid: 1, username: 'MeyerSauce21', password: 'ChickenShack22', fo
 
 
 Users.find = function (username) {
-    console.log("reached this point in Users.js!")
     if (testUser.username === username) return testUser;
     else return {error: 'No such user, yet!'};
 }
