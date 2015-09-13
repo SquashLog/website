@@ -11,7 +11,6 @@ Squash.vm = function(attrs) {
 }
 
 Squash.find = function(squashId) {
-   console.log("in Squash.js??", squashId);
   return m.request({method: 'GET', url: '/api/squashes/' + squashId});
 }
 

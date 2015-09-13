@@ -14,7 +14,6 @@ router.post('/', function(req, res){
 
 //get all user squashes
 router.get('/:squashId/', function(req, res){
-    console.log("params! ", req.params);
     res.send(Squashes.find(req.params.squashId));
 })
 

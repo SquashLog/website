@@ -12,7 +12,6 @@ Profile.controller = function () {
 }
 
 Profile.view = function (ctrl, options) {
-  console.log(options);
   return m('.container', [ 
     m('.User', [
             m('img[src=' + options.user.avatarUrl + ']'),

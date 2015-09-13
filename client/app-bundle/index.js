@@ -48,7 +48,6 @@ m.route(document.getElementById('app'), '/', {
 
   '/:username/squash/:squashId': {
     controller: function() {
-      console.log(m.route.param('squashId'));
       this.user = User.find( m.route.param('username') );
       this.squash = Squash.find( m.route.param('squashId') );
     },

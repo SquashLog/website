@@ -12,7 +12,6 @@ Squashes.squashes = function() {
 }
 
 Squashes.find = function(squashId) {
-  console.log("squashId dang it: ", squashId);
   return sampleSquashes.filter(function(x){return x.id == squashId;})[0];
 }
 
