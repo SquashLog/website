@@ -1,7 +1,7 @@
 var Promise = require('bluebird');
 var Users = module.exports;
 
-var testUser = {uid: 1, username: 'MeyerSauce21', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] }
+var testUser = {uid: 1, name: 'Beavis', username: 'MeyerSauce21', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] }
 
 
 Users.find = function (username) {
