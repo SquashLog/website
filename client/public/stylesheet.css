@@ -29,6 +29,10 @@ img{
 }
 
 
+.signIn{
+    float: right;
+}
+
 .userSquashes{
     float: left;
 }

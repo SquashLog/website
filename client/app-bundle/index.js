@@ -64,7 +64,10 @@ m.route(document.getElementById('app'), '/', {
 
 function withLayout (content) {
   return m('.app', [
-    m('h1', m('a[href=/]', { config: m.route }, 'SquashLog')),
+    m('h1', [
+      m('a[href=/]', { config: m.route }, 'SquashLog'),
+      m('.signIn', m('a[href=/auth/github]','Sign in With Github')),
+      ]),
     content
   ]);
 }

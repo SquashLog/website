@@ -17,6 +17,9 @@ app.get('/js/app-bundle.js',
     bundleExternal: false
   }))
 
+var port = process.env.PORT || 4000
+var host = process.env.HOST || 'http://localhost:' + port
+
 // Non-js static files
 var assetFolder = Path.resolve(__dirname, '../client/public')
 app.use(express.static(assetFolder))
@@ -24,6 +27,7 @@ app.use(express.static(assetFolder))
 //set up router for api endpoints
 var router = express.Router();
 
+require('./Auth').mount(app, host);
 app.use('/api/users', require('./api/users-api'));
 app.use('/api/squashes', require('./api/squashes-api'));
 
@@ -35,6 +39,5 @@ app.get('/*', function(req, res){
   res.sendFile( assetFolder + '/index.html' )
 })
 
-var port = process.env.PORT || 4000
 app.listen(port)
 console.log("Listening on port", port)
