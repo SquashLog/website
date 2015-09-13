@@ -33,7 +33,7 @@ m.route(document.getElementById('app'), '/', {
   '/:username': {
     controller: function() {
       this.user = User.find( m.route.param('username') );
-      this.userSquashes = Squash.filter(11)
+      this.userSquashes = User.squashes(m.route.param('username') );
       this.squashes = Squash.all();
     },
     view: function (ctrl) {

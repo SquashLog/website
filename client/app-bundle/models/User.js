@@ -18,3 +18,9 @@ User.find = function (username) {
     return user;
   });
 }
+
+User.squashes = function(username) {
+  return m.request({ method: 'GET', url: '/api/users/' + username + '/squashes/' }).then(function(squashes){
+    return squashes;
+  });
+}

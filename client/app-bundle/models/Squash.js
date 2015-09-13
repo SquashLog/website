@@ -17,11 +17,6 @@ Squash.find = function(squashId) {
   })
 }
 
-Squash.filter = function(id) {
-
-  return m.deferred.resolve( squashFixture.filter(s => s.id == id) );
-}
-
 Squash.all = function() {
    //return m.deferred.resolve(squashFixture)
   return m.request({method: 'GET', url: '/api/squashes/'}).then(function(squashes){
