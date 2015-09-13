@@ -57,8 +57,8 @@ After that your local database is up and running for testing, cheers!
 ## Migrating
 
 ```bash
-$ npm run migrate
-$ NODE_ENV=test npm run migrate
+$ npm run db-migrate
+$ NODE_ENV=test npm run db-migrate
 ```
 
 ## Jump-starting your App
