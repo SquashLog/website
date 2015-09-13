@@ -27,8 +27,8 @@ m.route(document.getElementById('app'), '/', {
     },
     view: function (ctrl) {
       return withLayout([
-        m.component(Feed, { squashes: ctrl.squashes() }),
-        m.component(Chat)
+        m.component(Chat),
+        m.component(Feed, { squashes: ctrl.squashes() })
       ]);
     },
   },
