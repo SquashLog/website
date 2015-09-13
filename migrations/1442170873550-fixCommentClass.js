@@ -26,15 +26,12 @@ var command = function(str){
 'use strict'
 
 exports.up = function(next) {
-  command('CREATE CLASS Comment EXTENDS V')
-  .then(() => command('CREATE PROPERTY Comment.title STRING'))
-  .then(() => command('CREATE PROPERTY Comment.content STRING'))
-  .then(() => command('ALTER PROPERTY Comment.title MANDATORY true'))
-  .then(() => command('ALTER PROPERTY Comment.content MANDATORY true'))
+  command('DROP PROPERTY Comment.title')
   .then(() => next())
 };
 
 exports.down = function(next) {
-  command('DROP CLASS Comment')
+	command('CREATE PROPERTY Comment.title STRING')
+  .then(() => command('ALTER PROPERTY Comment.title MANDATORY true'))
   .then(() => next())
 };
