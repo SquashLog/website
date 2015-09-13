@@ -3,12 +3,12 @@ var request = require('request-promise');
 var username = process.env.DB_USER;
 var password = process.env.DB_PASSWORD;
 var databaseName = process.env.DB_NAME;
-var databaseUrl = "http://localhost:2480/command/"+databaseName+"/sql";
-
+var databaseUrl = process.env.DB_URL;
+var fullUrl = databaseUrl + "command/" + databaseName + "/sql";
 
 var command = function(str){
   return request({
-    url: databaseUrl ,
+    url: fullUrl ,
     method: "POST",
     auth : {
       'user' : username,
@@ -20,7 +20,7 @@ var command = function(str){
       console.log("Command Sent Successfully");
     })
     .catch(function (response) {
-      console.log(response);
+      console.log(response.name, "\n", response.message);
     });
 }
 'use strict'
