@@ -8,6 +8,16 @@ type java >/dev/null 2>&1 || { echo >&2 "Please install java and try running thi
 
 clear
 
+cat > .env << EOT
+DB_USER=admin
+DB_PASSWORD=admin
+DB_HOST=localhost
+DB_NAME=squash_development
+DB_URL=http://localhost:2480
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+EOT
+
 brew install wget
 
 # download the orientdb
