@@ -17,8 +17,8 @@ Users.followers = function (username) {
 }
 
 Users.squashes = function (username) {
-    var squashes = testUsers.filter(function(user) { return user.username === username; })[0].squashes;
-    return {squashes: squashes};
+    var user = testUsers.filter(function(user) { return user.username === username; })[0];
+    return {squashes: user.squashes};
 }
 
 

@@ -43,7 +43,7 @@ describe('User API', function() {
 
   it('outputs all squashes from a specific user', function(done) {
     request(app)
-      .get('/users/1/squashes')
+      .get('/users/MeyerSauce21/squashes')
       .set('Authorization', 'Bearer test_oauth_token')
       .set('Accept', 'application/json')
       .end(function(err, res) {
@@ -58,7 +58,7 @@ describe('User API', function() {
 
   it('outputs all followers of a specific user', function(done) {
     request(app)
-      .get('/users/1/followers')
+      .get('/users/MeyerSauce21/followers')
       .set('Authorization', 'Bearer test_oauth_token')
       .set('Accept', 'application/json')
       .end(function(err, res) {
