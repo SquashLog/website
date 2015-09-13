@@ -8,7 +8,7 @@ var Path = require('path')
 var browserify = require('browserify-middleware')
 var babelify = require("babelify")
 
-var vendorLibs = ['mithril']
+var vendorLibs = ['mithril','socket.io-client']
 app.get('/js/vendor-bundle.js', browserify(vendorLibs))
 
 app.get('/js/app-bundle.js',
@@ -27,7 +27,9 @@ app.use(express.static(assetFolder))
 //set up router for api endpoints
 var router = express.Router();
 
+
 require('./Auth').mount(app, host);
+require('./Sockets').mount(app, port);
 app.use('/api/users', require('./api/users-api'));
 app.use('/api/squashes', require('./api/squashes-api'));
 
