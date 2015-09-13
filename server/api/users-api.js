@@ -1,5 +1,5 @@
 var express = require('express');
-var Users = require('../models/Users.js')
+var Users = require('../models/Users_mock.js')
 
 var router = module.exports = express.Router();
 
@@ -12,8 +12,6 @@ router.get('/', function(req, res){
 router.post('/', function(req, res){
 
 });
-
-
 
 //get specific user information
 router.get('/:username', function(req, res){
