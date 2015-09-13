@@ -12,7 +12,7 @@ Squashes.squashes = function() {
 }
 
 Squashes.find = function(squashId) {
-  return sampleSquashes.filter(function(x){return x.squashId == squashId;});
+  return sampleSquashes.filter(function(x){return x.squashId == squashId;})[0];
 }
 
 Squashes.comments = function(id) {
