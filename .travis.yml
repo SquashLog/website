@@ -1,7 +1,14 @@
 language: node_js
 node_js:
-  - "0.12"
-  - "0.11"
-  - "0.10"
   - "iojs"
-  - "iojs-v1.0.4"
+
+before_script:
+  - chmod 755 ./.bin/*.sh
+  - echo $TRAVIS_BRANCH
+  - echo $DB_URL
+  - echo $DB_URL$TRAVIS_BRANCH/plocal/graph
+  - echo $DB_USER
+  - sh -c ./.bin/create-travis-db.sh
+
+after_script:
+  - sh -c ./.bin/delete-travis-db.sh
