@@ -7,7 +7,7 @@ var Squash = require('./models/Squash');
 var Feed   = require('./components/Feed');
 var Profile   = require('./components/Profile');
 var SquashPage = require('./components/SquashPage');
-var Chat = require('./components/chat')
+var NewSquash = require('./components/NewSquash')
 
 
 
@@ -27,11 +27,21 @@ m.route(document.getElementById('app'), '/', {
     },
     view: function (ctrl) {
       return withLayout([
-        m.component(Feed, { squashes: ctrl.squashes() }),
-        m.component(Chat)
+        m.component(Feed, { squashes: ctrl.squashes() })
       ]);
     },
   },
+
+'/:username/squash': {
+    controller: function() {
+    },
+    view: function(ctrl) {
+      return withLayout([
+        m.component(NewSquash)
+      ]);
+    }
+  },
+
 
   '/:username': {
     controller: function() {
@@ -64,8 +74,13 @@ m.route(document.getElementById('app'), '/', {
 
 })
 
+
+//hard coded add link for now until username object gets implemented
 function withLayout (content) {
   return m('.app', [
+    m('.add-squash', m('a[href=/alice/squash]', { config: m.route },
+        m('img[src=http://www.clker.com/cliparts/4/K/8/Y/4/8/fly-swatter-md.png]')
+      )),
     m('.feed-container', [
       m('h1', m('a[href=/]', { config: m.route }, m('img[src=/SquashLog.png]'))),
       content,

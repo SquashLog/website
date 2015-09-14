@@ -1,0 +1,146 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+body {
+  background-image: url("http://previews.123rf.com/images/rtsubin/rtsubin1304/rtsubin130400006/18906935-Striped-gray-concrete-wall-background-texture-Stock-Photo.jpg"); }
+
+a {
+  text-decoration: none;
+  color: #3F392D; }
+
+div#app {
+  height: 100%; }
+
+div.app {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  line-height: 22px;
+  text-align: center; }
+  div.app::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+div.feed-container {
+  float: left;
+  display: block;
+  margin-right: 4.82916%;
+  width: 82.52847%;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 100%; }
+  div.feed-container:last-child {
+    margin-right: 0; }
+  div.feed-container img {
+    box-shadow: 5px 5px 2px grey; }
+
+.add-squash {
+  zoom: 25%;
+  height: 2px;
+  width: 2px; }
+
+.squash {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .squash::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .squash .squash-content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+    border-bottom: 1px solid grey; }
+    .squash .squash-content:last-child {
+      margin-right: 0; }
+
+.newSquash {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 91.4702%;
+  margin-left: 4.2649%;
+  background-color: rgba(255, 255, 255, 0.81);
+  color: #95AF73; }
+  .newSquash h3 {
+    float: left; }
+  .newSquash h4 {
+    float: left; }
+  .newSquash::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .newSquash:last-child {
+    margin-right: 0; }
+  .newSquash form {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%;
+    margin-left: 4.2649%; }
+    .newSquash form:last-child {
+      margin-right: 0; }
+    .newSquash form textarea {
+      float: left;
+      display: block;
+      margin-right: 2.57751%;
+      width: 90.67477%;
+      border: 3px solid #cccccc;
+      padding: 5px;
+      font-family: Tahoma, sans-serif;
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      resize: none;
+      outline: none;
+      box-shadow: 2px 2px 1px #95AF73; }
+      .newSquash form textarea:last-child {
+        margin-right: 0; }
+    .newSquash form textarea.description {
+      height: 200px; }
+    .newSquash form .buffer {
+      margin-top: 20px;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .newSquash form .buffer:last-child {
+        margin-right: 0; }
+    .newSquash form button {
+      float: left;
+      display: block;
+      margin-right: 2.57751%;
+      width: 25.39818%;
+      margin-top: 20px;
+      margin-right: 20px;
+      color: #95AF73;
+      outline: none;
+      width: 15em;
+      height: 3em;
+      top: 100%; }
+      .newSquash form button:last-child {
+        margin-right: 0; }
+
+div.sign-in {
+  float: left;
+  display: block;
+  margin-right: 4.82916%;
+  width: 12.64237%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: block;
+  font-size: 20px;
+  padding-bottom: 50px;
+  margin-top: 5em; }
+  div.sign-in:last-child {
+    margin-right: 0; }
+
+/*# sourceMappingURL=squashlog.css.map */

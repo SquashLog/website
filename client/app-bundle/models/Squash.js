@@ -5,6 +5,7 @@ var Squash = module.exports;
 Squash.vm = function(attrs) {
   var attrs = attrs || ''
   return {
+    username: m.prop(attrs.username),
     title: m.prop(attrs.title),
     description: m.prop(attrs.description)
   }
