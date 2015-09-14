@@ -17,6 +17,7 @@ var path = require('path')
 //
 global.__server = path.join(__dirname, '../server')
 global.__client = path.join(__dirname, '../client')
+var db = require(__server + '/lib/db')
 
 // The following makes `expect` available in every test file
 // without the need to require chai.
@@ -47,3 +48,24 @@ TestHelper.createApp = function () {
 }
 
 
+TestHelper.seed = function (fixtures) {
+  var batches = []
+
+  for(var table in fixtures) {
+    fixtures[table].forEach(function (item) {
+      batches.push(db.create(table, item))
+    })
+  }
+  return db.batchExec(batches)
+}
+
+
+var tables = ['User', 'Squash', 'Comment']
+
+TestHelper.truncateData = function () {
+  var promises = tables.map(function (table) {
+    return db.exec('TRUNCATE CLASS ' + table + ' UNSAFE')
+  })
+
+  return Promise.all(promises)
+}
