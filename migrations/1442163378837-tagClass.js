@@ -6,6 +6,7 @@ var databaseName = process.env.DB_NAME;
 var databaseUrl = process.env.DB_URL;
 var fullUrl = databaseUrl + "command/" + databaseName + "/sql";
 
+console.log("This is the URL we are going to: ", fullUrl )
 var command = function(str){
   return request({
     url: fullUrl ,
