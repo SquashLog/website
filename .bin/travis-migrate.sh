@@ -6,8 +6,6 @@
 
 echo "Migrating $DB_NAME"
 
-echo "DB_URL looks like "DB_URL
-
 # $@ passes ALL arguments to command
 NODE_ENV=$NODE_ENV \
 DB_USER=$DB_USER \

@@ -5,7 +5,7 @@ var password = process.env.DB_PASSWORD;
 var databaseName = process.env.DB_NAME;
 var databaseUrl = process.env.DB_HOST;
 var fullUrl = databaseUrl + "command/" + databaseName + "/sql";
-console.log('The full URL looks like:', fullUrl);
+
 var command = function(str){
   return request({
     url: fullUrl ,
