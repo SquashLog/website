@@ -1,15 +1,18 @@
-var Promise = require('bluebird');
-var Users = module.exports;
-var rp = require('request-promise');
-var db = require('../lib/db.js');
-var User = module.exports;
+var db      = require('../lib/neo-db.js');
+var model   = require('../lib/model.js')
 
-User.create = function (user) {
-  var query = db.create('User', user)
-  return db.batchExec([query])
-}
 
-User.find = function (username) {
-  var query = `SELECT FROM User WHERE username="${username}"`
-  return db.exec(query)
-}
+var User = module.exports = model.node('User', {
+
+  // TODO: Use validate.js
+  schema: {
+    name: {},
+    email: {},
+    username: {},
+    avatar_url: {},
+    github_id: {},
+
+    created_at: {},
+    updated_at: {},
+  }
+})
