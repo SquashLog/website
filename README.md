@@ -9,50 +9,26 @@ A boilerplate starter project that includes Node, Express, Browserify, and Mithr
 ## Getting Started
 
 ```
-$ git clone https://github.com/mindeavor/node-catapult my-project
-$ cd my-project
+# Dependencies - Node modules
 $ npm install
+
+# Dependencies - Neo4j 2.1.6
+$ brew install https://raw.githubusercontent.com/Homebrew/homebrew/90709afeaf347527fe84605283f44aa4a6fe93d3/Library/Formula/neo4j.rb
+$ node config/create-indexes.js # TODO: Use migrations
+$ neo4j start
+
+# Dependencies - Neo4j 2.1.6 test database
+$ git clone https://github.com/loop-recur/neo4j-test-server
+$ cd neo4j-test-server
+$ git checkout 2.1.6.1
+$ cd -
+$ NODE_ENV=test node config/create-indexes.js
+$ ./neo4j-test-server/bin/neo4j start
+
 $ npm start
 ```
 
 Now visit [localhost:4000](http://localhost:4000/)
-
-Go to terminal and brew install orientdb
-
-```
-brew install orientdb
-```
-
-Then you want to access orientdb console
-
-```
-orientdb-console
-```
-
-And create a local database
-
-```
-CREATE DATABASE plocal:/usr/local/Cellar/orientdb/2.0.11/libexec/databases/squash_test/squash_test
-```
-
-Then connect to your database
-
-```
-CONNECT plocal:/usr/local/Cellar/orientdb/2.0.11/libexec/databases/squash_test/squash_test
-```
-
-After that, set your environment variables to these credentials
-
-The default username and password when creating a local db is "admin".
-
-Set your environment variables with the command
-
-```
-export DB_USER=admin DB_PASSWORD=admin DB_HOST=localhost DB_NAME=squash_test
-```
-Create a new database called 'squash_dev' using the same instructions above in order to create a development database.
-
-After that your local database is up and running for testing, cheers!
 
 ## Migrating
 
