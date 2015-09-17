@@ -1,6 +1,6 @@
 var Promise = require('bluebird');
 var Squashes = module.exports;
-
+var db = require('../lib/db.js');
 
 var sampleSquashes =  [ {id: 1, user: {uid: 1, username: 'MeyerSauce21', avatarUrl: 'http://www.avatarsdb.com/avatars/The_cat.gif'},title: 'I got it!!!', content: 'Turn out I needed to restart my computer!!!'},
                   {id: 2, user: {uid: 2, username: 'eric122', avatarUrl: 'http://www.avatarsdb.com/animals/cats/cat-rain-avatar-52022.htm'},title: 'I had an epiphany', content: 'I just had to press edit undo, and know everything works again!'},

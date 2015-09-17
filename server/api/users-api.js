@@ -5,7 +5,6 @@ var router = module.exports = express.Router();
 
 //gets all users with user information
 router.get('/', function(req, res){
-    console.log(req.params.username);
     res.send(Users.all());
 });
 

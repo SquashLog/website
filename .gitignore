@@ -1,3 +1,7 @@
 node_modules/
 migrations/.migrate
 orientdb/
+boubon/
+.sass-cache/
+neat/
+neo4j-test-server/

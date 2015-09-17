@@ -2,6 +2,8 @@
 @import "../../../neat/neat";
 
 $transparent-background-white: rgba(255,255,255,0.8);
+$lesstransparent-background-white: rgba(255,255,255,0.81);
+
 
 body {
   background-image: url('http://previews.123rf.com/images/rtsubin/rtsubin1304/rtsubin130400006/18906935-Striped-gray-concrete-wall-background-texture-Stock-Photo.jpg');
@@ -33,6 +35,12 @@ div.feed-container {
   }
 }
 
+.add-squash{
+    zoom: 25%;
+    height: 2px;
+    width: 2px;
+  }
+
 .squash {
   @include outer-container();
 
@@ -40,6 +48,61 @@ div.feed-container {
     @include span-columns(8);
     @include shift(2);
     border-bottom: 1px solid grey;
+  }
+}
+
+.newSquash{
+
+  h3{
+  float: left;
+  }
+
+  h4{
+  float: left;
+  }
+  @include outer-container();
+  @include span-columns(11 of 12);
+  @include shift(0.5);
+  background-color: $lesstransparent-background-white;
+  color: #95AF73;
+
+  form{
+    @include span-columns(11);
+    @include shift(0.5);
+
+    textarea{
+      @include span-columns(10 of 11);
+      border: 3px solid #cccccc;
+      padding: 5px;
+      font-family: Tahoma, sans-serif;
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      resize: none;
+      outline: none;
+      box-shadow: 2px 2px 1px #95AF73;
+        
+
+    }
+
+    textarea.description{
+      height: 200px;
+    }
+    .buffer{
+      margin-top: 20px;
+      @include span-columns(8);
+    }
+    button{
+    @include span-columns(3 of 11);
+      
+      margin-top: 20px;
+      margin-right: 20px;
+
+      color: #95AF73;
+      outline: none;
+      width: 15em;  
+      height: 3em;
+      top: 100%;
+    }
   }
 }
 
