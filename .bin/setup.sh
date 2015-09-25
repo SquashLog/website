@@ -17,6 +17,16 @@ fi
 
 clear
 
+cat > .env << EOT
+DB_USER=admin
+DB_PASSWORD=admin
+DB_HOST=localhost
+DB_NAME=squash_development
+DB_URL=http://localhost:2480
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+EOT
+
 npm install
 
 sleep 15

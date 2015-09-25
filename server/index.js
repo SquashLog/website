@@ -1,3 +1,4 @@
+require('dotenv').load()
 require('../ext')
 var express = require('express')
 var app = express()
