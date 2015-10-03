@@ -1,25 +1,20 @@
+exports.basicUsers = function () {
 
-exports.vertices = {
-  User: [
-    user('dan'),
-    user('justin'),
-    user('gilbert'),
-    user('karen')
-  ],
+  return TestHelper.seed({
+    User: [
+      user('dan'),
+      user('justin'),
+      user('gilbert'),
+      user('karen')
+    ],
 
-  Squash: [
-    squash(1),
-    squash(2),
-    squash(3),
-    squash(4)
-  ],
-
-  Comment: [
-    comment(1),
-    comment(2),
-    comment(3),
-    comment(4)
-  ]
+    Squash: [
+      squash(1),
+      squash(2),
+      squash(3),
+      squash(4)
+    ]
+  })
 }
 
 function user (name) {

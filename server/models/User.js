@@ -1,5 +1,5 @@
 var db      = require('../lib/neo-db.js');
-var model   = require('../lib/model.js')
+var model   = require('../lib/model.js');
 
 
 var User = module.exports = model.node('User', {
@@ -13,6 +13,6 @@ var User = module.exports = model.node('User', {
     github_id: {},
 
     created_at: {},
-    updated_at: {},
+    updated_at: {}
   }
 })

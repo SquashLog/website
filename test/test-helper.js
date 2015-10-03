@@ -1,27 +1,25 @@
 process.env.NODE_ENV = 'test'
 require('../ext')
+global.Promise = require('bluebird')
 
-Promise.longStackTraces()
-Promise.onPossiblyUnhandledRejection(function(error) {
-  throw error;
-})
-
-var fs   = Promise.promisifyAll(require("fs"))
-var path = require('path')
-
+// Mocha "helpers" to support coroutines tests
+global.beforeEach_ = function (f) { beforeEach( Promise.coroutine(f) ) }
+global.it_ = function (description, f) { it( description, Promise.coroutine(f) ) }
+global.xit_ = function (description, f) { xit( description, f ) }
+global.it_.only = function (description, f) { it.only( description, Promise.coroutine(f) ) }
 
 // The following allows you to require files independent of
 // the location of your test file.
 // Example:
-//  var User = require(__root + '/models/user.js')
+//  var User = require(__server + '/models/user.js')
 //
-global.__server = path.join(__dirname, '../server')
-global.__client = path.join(__dirname, '../client')
-var db = require(__server + '/lib/db')
+global.__server = __dirname + '/../server'
+global.__client = __dirname + '/../client'
 
 // The following makes `expect` available in every test file
 // without the need to require chai.
-global.expect = require('chai').expect
+var chai = require('chai')
+global.expect = chai.expect
 
 // Here is the object you can attach any helper functions used across
 // several test files.
@@ -47,25 +45,57 @@ TestHelper.createApp = function () {
   return app
 }
 
+//
+// Database Seeding
+//
+var models = [
+  'User',
+  'Squash'
+].map( m => require(__server + '/models/' + m) )
 
-TestHelper.seed = function (fixtures) {
-  var batches = []
+var modelsByLabel = models.reduce(function(acc, model) {
+  acc[model.label] = model
+  return acc
+}, {})
 
-  for(var table in fixtures) {
-    fixtures[table].forEach(function (item) {
-      batches.push(db.create(table, item))
+
+var db      = require(__server + '/lib/db.js')
+
+TestHelper.seed = function (nodes, edges) {
+  edges = edges || []
+  var results = {}
+
+  var nodePromises = Object.keys(nodes).map(function(label) {
+    var model = modelsByLabel[label]
+    return Promise.all( nodes[label].map(model.create) )
+                  .then( rows => results[label] = rows )
+  })
+
+
+  return Promise.all(nodePromises)
+    .then(function() {
+
+      var edgePromises = edges.map(function(edgeParams) {
+        // Convert indicies into node ids
+        edgeParams[0] = parseLabelNodeId(results, edgeParams[0])
+        edgeParams[2] = parseLabelNodeId(results, edgeParams[2])
+        return db.relate_p.apply(db, edgeParams)
+      })
+
+      return Promise.all(edgePromises)
     })
-  }
-  return db.batchExec(batches)
+    .return(results)
 }
 
 
-var tables = ['User', 'Squash', 'Comment']
+function parseLabelNodeId (results, string) {
+  var split = string.split('#')
+  var label = split[0]
+  var model = modelsByLabel[ label ]
+  if (! model) throw new Error("[TestHelper.seed] Model does not exist:" + label)
 
-TestHelper.truncateData = function () {
-  var promises = tables.map(function (table) {
-    return db.exec('TRUNCATE CLASS ' + table + ' UNSAFE')
-  })
+  var node = results[ label ][ parseInt(split[1]) ]
+  if (! node) throw new Error("[TestHelper.seed] No node for label " +label+ " exists at index " + split[1])
 
-  return Promise.all(promises)
+  return node.id
 }
