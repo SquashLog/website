@@ -1,6 +1,5 @@
 process.env.NODE_ENV = 'test'
 require('../ext')
-global.Promise = require('bluebird')
 
 // Mocha "helpers" to support coroutines tests
 global.beforeEach_ = function (f) { beforeEach( Promise.coroutine(f) ) }
