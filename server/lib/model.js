@@ -14,6 +14,16 @@ exports.node = function (nodeName, extras) {
       return db.nodesWithLabel_p(nodeName)
     },
 
+    find: function (nodeId) {
+      nodeId = parseInt(nodeId, 10)
+      if (! nodeId) return Promise.reject(new Model.NotFound())
+
+      var query =
+        "MATCH (n:" + nodeName + ") WHERE id(n) = {nodeId} RETURN n"
+      return db.query_p(query, { nodeId: nodeId })
+        .then( exports.firstResult(Model) )
+    },
+
     findByUid: function (uid) {
       return db.find_p({ uid: uid }, nodeName)
         .then( exports.firstResult(Model) )
