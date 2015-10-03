@@ -1,4 +1,3 @@
-var Promise = require('bluebird');
 var Users = module.exports;
 
 var testUsers = [{uid: 1, name: 'Beavis', username: 'MeyerSauce21', password: 'ChickenShack22', followers: ['eric','stan','kenny','kyle'], squashes : [] },
