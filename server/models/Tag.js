@@ -1,11 +1,11 @@
 var db      = require('../lib/db.js');
 var model   = require('../lib/model.js');
 
-var Squash = module.exports = model.node('Squash', {
+
+var Tag = module.exports = model.node('Tag', {
 
   // TODO: Use validate.js
   schema: {
-    title: {},
     content: {},
 
     created_at: {},

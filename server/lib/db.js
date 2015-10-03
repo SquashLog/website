@@ -1,68 +1,27 @@
-var rp = require('request-promise')
+var fs = require('fs')
+var path = require('path')
 
-//Raw SQL
-
-var sqlOptions = {
-  method: 'POST',
-  url: 'http://localhost:2480/command/' + process.env.DB_NAME + '/sql',
-  auth: {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD
-  }
-}
-
-exports.exec = function (query) {
-  var req = Object.assign({ body: query } , sqlOptions)
-  return rp(req)
-    .then(function (result) {
-      return JSON.parse(result).result[0]
-    })
-}
-
-//Batch Query
-
-var batchOptions = {
-  method: 'POST',
-  'content-type': 'application/json',
-  url: 'http://localhost:2480/batch/' + process.env.DB_NAME,
-  auth: {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD
-  }
-}
-
-exports.create = function (klass, attrs) {
-  var task = {type: "c"}
-  task.record = Object.assign({"@class": klass}, attrs)
-  return task
-}
+var config = require('../config.js')
+var env = process.env.NODE_ENV || 'development'
+console.log('['+ env +']', "Using database url:", config[env].neo4j.url)
+var db = require('seraph')(config[env].neo4j.url)
 
 
-exports.batchExec = function (operations) {
-  var payload = {
-    "transaction" : true,
-    "operations" : operations
-  };
-  return rp(Object.assign({ body: JSON.stringify(payload) }, batchOptions))
-    .then(function (result) {
-      return JSON.parse(result).result[0]
-    })
-}
+Promise.promisifyAll(db, { suffix: '_p' })
+Promise.promisifyAll(db.node, { suffix: '_p' })
+Promise.promisifyAll(db.rel, { suffix: '_p' })
+Promise.promisifyAll(db.relate, { suffix: '_p' })
+Promise.promisifyAll(db.index, { suffix: '_p' })
+Promise.promisifyAll(db.constraints, { suffix: '_p' })
+Promise.promisifyAll(db.constraints.uniqueness, { suffix: '_p' })
+module.exports = db
 
-//General
+db.deleteEverything = function () {
+  if (process.env.NODE_ENV === 'production') return;
 
-
-exports.find = function (rid) {
-  return rp({
-    method: 'POST',
-    url: 'http://localhost:2480/document/' + process.env.DB_NAME + '/' + rid,
-    auth: {
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD
-    }
-  })
-    .then(function (result) {
-      return JSON.parse(result).result[0]
-    })
-
+  var query =
+    "MATCH (n)" +
+    "OPTIONAL MATCH (n)-[r]-()" +
+    "DELETE n,r;"
+  return db.queryRaw_p(query)
 }

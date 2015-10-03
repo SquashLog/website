@@ -1,10 +1,12 @@
 var util = require('util')
-var db = require('./neo-db.js')
+var db = require('./db.js')
 
 exports.node = function (nodeName, extras) {
   var nodeNameLower = nodeName.toLowerCase()
 
   var Model = {
+
+    label: nodeName,
 
     cleanAttrs: function (attrs) {
       return Object.pluck(Object.keys(extras.schema), attrs)
@@ -66,10 +68,10 @@ exports.node = function (nodeName, extras) {
 
 
   function save (attrs, saveType) {
-    console.log('['+nodeName+']', saveType, '::', attrs)
+    // console.log('['+nodeName+']', saveType || 'create', '::', attrs)
     if (attrs.id !== null && attrs.id !== undefined) {
       var cleanAttrs = Model.cleanAttrs(attrs)
-      cleanAttrs.updated_at = new Date()
+      cleanAttrs.updated_at = Date.now()
 
 
       return db.call(
@@ -78,7 +80,7 @@ exports.node = function (nodeName, extras) {
       .return( Object.assign(cleanAttrs, { id: attrs.id }) )
     }
     else {
-      attrs.created_at = new Date()
+      attrs.created_at = Date.now()
       return db.save_p(attrs, nodeName)
     }
   }

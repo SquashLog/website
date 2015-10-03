@@ -1,5 +1,5 @@
 var express = require('express');
-var Squashes = require('../models/Squash');
+var Squashes = require('../models/Squash_mock');
 
 var router = module.exports = express.Router();
 
