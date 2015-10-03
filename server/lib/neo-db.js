@@ -3,7 +3,7 @@ var path = require('path')
 
 var config = require('../config.js')
 var env = process.env.NODE_ENV || 'development'
-console.log("Using database url:", config[env].neo4j.url)
+console.log('['+ env +']', "Using database url:", config[env].neo4j.url)
 var db = require('seraph')(config[env].neo4j.url)
 var Promise = require('bluebird')
 

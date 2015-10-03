@@ -9,7 +9,7 @@ module.exports = {
 
   test: {
     neo4j: {
-      url: 'http://localhost:7373'
+      url: process.env.NEO4J_URL || 'http://localhost:7373'
     }
   },
 
