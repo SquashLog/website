@@ -1,3 +1,4 @@
+var db      = require('../lib/neo-db.js');
 var model   = require('../lib/model.js');
 
 var Squash = module.exports = model.node('Squash', {
