@@ -35,7 +35,7 @@ app.use(express.static(assetFolder))
 var router = express.Router();
 
 
-require('./Auth').mount(app, host);
+require('./oauth').mount(app, host);
 require('./Sockets').mount(app, port);
 app.use('/api/users', require('./api/users-api'));
 app.use('/api/squashes', require('./api/squashes-api'));
