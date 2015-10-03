@@ -3,7 +3,7 @@ var request = require('request-promise');
 var username = process.env.DB_USER;
 var password = process.env.DB_PASSWORD;
 var databaseName = process.env.DB_NAME;
-var databaseUrl = process.env.DB_URL;
+var databaseUrl = process.env.DB_HOST;
 var fullUrl = databaseUrl + "command/" + databaseName + "/sql";
 
 var command = function(str){

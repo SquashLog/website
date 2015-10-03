@@ -1,8 +1,10 @@
 var rp = require('request-promise')
-
+var host = process.env.HOST
+var branch = process.env.TRAVIS_BRANCH
+console.log(host);
 //Raw SQL
 
-var sqlOptions = {
+var localOptions = {
   method: 'POST',
   url: 'http://localhost:2480/command/' + process.env.DB_NAME + '/sql',
   auth: {
@@ -11,8 +13,22 @@ var sqlOptions = {
   }
 }
 
+var travisOptions = {
+  method: 'POST',
+  url: host + '/command/' + branch + '/sql',
+  auth: {
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD
+  }
+}
+
 exports.exec = function (query) {
-  var req = Object.assign({ body: query } , sqlOptions)
+  if(process.env.TRAVIS_BRANCH) {
+    var req = Object.assign({ body: query }, travisOptions)
+  }
+  else {
+    var req = Object.assign({ body: query } , localOptions)
+  }
   return rp(req)
     .then(function (result) {
       return JSON.parse(result).result[0]

@@ -41,7 +41,7 @@ rm -rf orientdb-community-2.1.2
 rm orientdb.tar.gz
 
 # chmod every .sh file to be executable
-chmod 755 ./.bin/db-reset.sh
+chmod 755 ./.bin/*.sh
 chmod 755 ./orientdb/bin/*.sh
 chmod -R 777 ./orientdb/config
 
