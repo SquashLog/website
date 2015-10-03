@@ -1,4 +1,4 @@
-var db      = require('../lib/neo-db.js');
+var db      = require('../lib/db.js');
 var model   = require('../lib/model.js');
 
 

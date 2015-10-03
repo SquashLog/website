@@ -1,6 +1,5 @@
-var db    = require(__server + '/lib/neo-db')
+var db    = require(__server + '/lib/db')
 var Squash  = require(__server + '/models/Squash')
-require('../test-helper.js')
 var fixtures = require('../fixtures.js')
 
 describe("Squash Model", function() {

@@ -1,5 +1,5 @@
 var util = require('util')
-var db = require('./neo-db.js')
+var db = require('./db.js')
 
 exports.node = function (nodeName, extras) {
   var nodeNameLower = nodeName.toLowerCase()

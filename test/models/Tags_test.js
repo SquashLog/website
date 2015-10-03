@@ -1,6 +1,5 @@
-var db    = require(__server + '/lib/neo-db')
+var db    = require(__server + '/lib/db')
 var Tag  = require(__server + '/models/Tag')
-require('../test-helper.js')
 var fixtures = require('../fixtures.js')
 
 describe("Tag Model", function() {

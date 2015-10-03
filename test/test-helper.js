@@ -61,7 +61,7 @@ var modelsByLabel = models.reduce(function(acc, model) {
 }, {})
 
 
-var db      = require(__server + '/lib/neo-db.js')
+var db      = require(__server + '/lib/db.js')
 
 TestHelper.seed = function (nodes, edges) {
   edges = edges || []

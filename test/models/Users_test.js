@@ -1,6 +1,5 @@
-var db    = require(__server + '/lib/neo-db')
+var db    = require(__server + '/lib/db')
 var User  = require(__server + '/models/User')
-require('../test-helper.js')
 var fixtures = require('../fixtures.js')
 
 describe("User Model", function() {

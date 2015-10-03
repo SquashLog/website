@@ -1,6 +1,5 @@
-var db    = require(__server + '/lib/neo-db')
+var db    = require(__server + '/lib/db')
 var Comment  = require(__server + '/models/Comment')
-require('../test-helper.js')
 var fixtures = require('../fixtures.js')
 
 describe("Comment Model", function() {
