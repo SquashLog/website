@@ -50,3 +50,17 @@ Check the [wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets t
 The most notable part of this app is [browserify-middleware](https://github.com/ForbesLindesay/browserify-middleware). Great node packages are exceedingly rare – this is one of those packages.
 
 When adding a new package to use in the frontend, ADD THE NEW LIBRARY TO `vendorLibs` IN `server/index.js` !!
+
+## Edge Schema
+
+```
+(:User)-[:AUTHOR_OF]->(:Squash)
+(:User)-[:AUTHOR_OF]->(:Comment)
+(:User)-[:FOLLOWS]->(:User)
+
+(:Squash)-[:FAVORITED_BY]->(:User)
+
+(:Comment)-[:CHILD_OF]->(:Squash)
+(:Comment)-[:CHILD_OF]->(:Comment)
+(:Comment)-[:TAGGED_WITH]->(:Tag)
+```
