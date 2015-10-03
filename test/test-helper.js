@@ -50,7 +50,9 @@ TestHelper.createApp = function () {
 //
 var models = [
   'User',
-  'Squash'
+  'Squash',
+  'Comment',
+  'Tag'
 ].map( m => require(__server + '/models/' + m) )
 
 var modelsByLabel = models.reduce(function(acc, model) {

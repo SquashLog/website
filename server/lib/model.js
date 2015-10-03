@@ -68,7 +68,7 @@ exports.node = function (nodeName, extras) {
 
 
   function save (attrs, saveType) {
-    console.log('['+nodeName+']', saveType || 'create', '::', attrs)
+    // console.log('['+nodeName+']', saveType || 'create', '::', attrs)
     if (attrs.id !== null && attrs.id !== undefined) {
       var cleanAttrs = Model.cleanAttrs(attrs)
       cleanAttrs.updated_at = Date.now()
