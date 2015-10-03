@@ -1,4 +1,3 @@
-var Promise = require('bluebird');
 var Squashes = module.exports;
 var db = require('../lib/db.js');
 

@@ -1,6 +1,6 @@
 process.env.NODE_ENV = 'test'
+require('../ext')
 
-var Promise = require('bluebird')
 Promise.longStackTraces()
 Promise.onPossiblyUnhandledRejection(function(error) {
   throw error;

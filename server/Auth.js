@@ -1,6 +1,5 @@
 var passport = require('passport')
 var GitHubStrategy = require('passport-github').Strategy
-var Promise    = require('bluebird')
 
 
 

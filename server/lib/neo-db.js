@@ -5,7 +5,7 @@ var config = require('../config.js')
 var env = process.env.NODE_ENV || 'development'
 console.log('['+ env +']', "Using database url:", config[env].neo4j.url)
 var db = require('seraph')(config[env].neo4j.url)
-var Promise = require('bluebird')
+
 
 Promise.promisifyAll(db, { suffix: '_p' })
 Promise.promisifyAll(db.node, { suffix: '_p' })
