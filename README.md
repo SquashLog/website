@@ -59,8 +59,8 @@ When adding a new package to use in the frontend, ADD THE NEW LIBRARY TO `vendor
 (:User)-[:FOLLOWS]->(:User)
 
 (:Squash)-[:FAVORITED_BY]->(:User)
+(:Squash)-[:TAGGED_WITH]->(:Tag)
 
 (:Comment)-[:CHILD_OF]->(:Squash)
 (:Comment)-[:CHILD_OF]->(:Comment)
-(:Comment)-[:TAGGED_WITH]->(:Tag)
 ```
