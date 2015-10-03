@@ -26,6 +26,14 @@ var sass = require('node-sass-endpoint')
 app.get('/css/app-bundle.css',
   sass.serve('./client/app-bundle/styles/app.scss'))
 
+// Cookie Sessions
+var session = require('cookie-session')
+app.use(session({
+  name: 'squashlog:session',
+  secret: process.env.SESSION_SECRET || 'development',
+  secure: (!! process.env.SESSION_SECRET),
+  signed: true
+}))
 
 // Non-js static files
 var assetFolder = Path.resolve(__dirname, '../client/public')
