@@ -7,6 +7,9 @@ describe("Squash Model", function() {
 
   beforeEach(function () {
     return db.deleteEverything()
+      .then(function () {
+        return fixtures.basicUsers()
+      })
   })
 
   it("creates and persists a squash", function() {

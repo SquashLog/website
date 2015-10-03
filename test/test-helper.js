@@ -59,7 +59,7 @@ var modelsByLabel = models.reduce(function(acc, model) {
 }, {})
 
 
-var db      = require(__server + '/lib/db.js')
+var db      = require(__server + '/lib/neo-db.js')
 
 TestHelper.seed = function (nodes, edges) {
   edges = edges || []
@@ -75,10 +75,12 @@ TestHelper.seed = function (nodes, edges) {
   return Promise.all(nodePromises)
     .then(function() {
 
-      var edgePromises = edges.map(function(edgeParams) {
+      var edgePromises = edges.map(function(edgeString) {
+        var edgeParams = edgeString.split(/ +/)
         // Convert indicies into node ids
         edgeParams[0] = parseLabelNodeId(results, edgeParams[0])
         edgeParams[2] = parseLabelNodeId(results, edgeParams[2])
+
         return db.relate_p.apply(db, edgeParams)
       })
 
