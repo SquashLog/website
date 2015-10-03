@@ -4,6 +4,10 @@ var express = require('express')
 var app = express()
 var Path = require('path')
 
+var port = process.env.PORT || 4000
+var host = process.env.HOST || 'http://localhost:' + port
+
+
 // Provide a browserified file at a specified path
 var browserify = require('browserify-middleware')
 var babelify = require("babelify")
@@ -17,8 +21,11 @@ app.get('/js/app-bundle.js',
     bundleExternal: false
   }))
 
-var port = process.env.PORT || 4000
-var host = process.env.HOST || 'http://localhost:' + port
+// CSS files
+var sass = require('node-sass-endpoint')
+app.get('/css/app-bundle.css',
+  sass.serve('./client/app-bundle/styles/app.scss'))
+
 
 // Non-js static files
 var assetFolder = Path.resolve(__dirname, '../client/public')

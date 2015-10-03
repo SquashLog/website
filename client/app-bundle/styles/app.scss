@@ -1,5 +1,6 @@
-@import "../../../bourbon/bourbon";
-@import "../../../neat/neat";
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
 
 $transparent-background-white: rgba(255,255,255,0.8);
 $lesstransparent-background-white: rgba(255,255,255,0.81);
