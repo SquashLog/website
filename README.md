@@ -6,6 +6,8 @@
 ## Getting Started
 * Make sure you have Node.js 4.0.0 or higher installed.
 ```
+$ ./.bin/setup.sh
+
 # Dependencies - Node modules
 $ npm install
 

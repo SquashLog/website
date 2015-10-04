@@ -33,19 +33,27 @@ sleep 15
 
 brew install wget
 
+brew install https://raw.githubusercontent.com/Homebrew/homebrew/90709afeaf347527fe84605283f44aa4a6fe93d3/Library/Formula/neo4j.rb
+
+neo4j start
+
+git clone https://github.com/loop-recur/neo4j-test-server
+cd neo4j-test-server
+git checkout 2.1.6.1
+cd -
+./neo4j-test-server/bin/neo4j start
 # download the orientdb
-wget -O orientdb.tar.gz 'http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.1.2.tar.gz&os=mac'
-tar -xvf orientdb.tar.gz
-mv orientdb-community-2.1.2 orientdb
-rm -rf orientdb-community-2.1.2
-rm orientdb.tar.gz
-
+  # wget -O orientdb.tar.gz 'http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.1.2.tar.gz&os=mac'
+  # tar -xvf orientdb.tar.gz
+  # mv orientdb-community-2.1.2 orientdb
+  # rm -rf orientdb-community-2.1.2
+  # rm orientdb.tar.gz
 # chmod every .sh file to be executable
-chmod 755 ./.bin/db-reset.sh
-chmod 755 ./orientdb/bin/*.sh
-chmod -R 777 ./orientdb/config
+  # chmod 755 ./.bin/db-reset.sh
+  # chmod 755 ./orientdb/bin/*.sh
+  # chmod -R 777 ./orientdb/config
 
-cd ./orientdb/bin/
+# cd ./orientdb/bin/
 
 echo development | ./server.sh &
 pid=$!
