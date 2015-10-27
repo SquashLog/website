@@ -5,6 +5,7 @@ var fixtures = require('../fixtures.js')
 describe("User Model", function() {
 
   beforeEach(function () {
+    this.timeout(4000);
     return db.deleteEverything()
       .then(function () {
         return fixtures.austinTexas()
