@@ -23,17 +23,17 @@ exports.node = function (nodeName, extras) {
       var query =
         "MATCH (n:" + nodeName + ") WHERE id(n) = {nodeId} RETURN n"
       return db.query_p(query, { nodeId: nodeId })
-        .then( exports.firstResult(Model) )
+        .then( Model.firstResult )
     },
 
     findByUid: function (uid) {
       return db.find_p({ uid: uid }, nodeName)
-        .then( exports.firstResult(Model) )
+        .then( Model.firstResult )
     },
 
     findBy: function (attrs) {
       return db.find_p(attrs, nodeName)
-        .then( exports.firstResult(Model) )
+        .then( Model.firstResult )
     },
 
     create: save,
@@ -45,6 +45,12 @@ exports.node = function (nodeName, extras) {
       return save(attrs, 'update')
     }
   }
+
+
+  Model.firstResult = function (rows) {
+    return (rows.length === 0) ? Promise.reject(new Model.NotFound()) : rows[0]
+  }
+
 
   // Errors
   Model.NotFound = function NotFound() {
@@ -85,13 +91,6 @@ exports.node = function (nodeName, extras) {
     }
   }
 }
-
-exports.firstResult = function (Model) {
-  return function (models) {
-    return (models.length === 0) ? Promise.reject(new Model.NotFound()) : models[0]
-  }
-}
-
 
 function attrsToQuery (node, obj) {
   return Object.keys(obj).reduce(function(results, propName) {

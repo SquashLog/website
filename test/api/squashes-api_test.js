@@ -1,5 +1,7 @@
-var request = require('supertest')
-var SquashesAPI = require(__server + '/api/squashes-api.js')
+var request = require('supertest-as-promised')
+var db      = require(__server + '/lib/db')
+var Squash  = require(__server + '/models/Squash')
+var SquashesAPI = require(__server + '/api/squashes-api')
 
 
 describe('Squashes API', function() {
@@ -20,7 +22,8 @@ describe('Squashes API', function() {
   app.testReady();
 
 
-  beforeEach(function() {
+  beforeEach_(function* () {
+    yield db.deleteEverything()
     currentUser = { uid: 'user_bob' }
     accessToken = { scopes: [] }
   })
@@ -28,8 +31,6 @@ describe('Squashes API', function() {
   it('outputs all squashes', function(done) {
     request(app)
       .get('/squashes')
-      .set('Authorization', 'Bearer test_oauth_token')
-      .set('Accept', 'application/json')
       .end(function(err, res) {
         if (err) done(err);
 
@@ -37,11 +38,37 @@ describe('Squashes API', function() {
 
         expect(squashes).to.be.an('array')
         expect(squashes[0].user).to.be.an('object')
-        expect(squashes[1].content).to.not.be.empty;
+
+        // Content should not be included
+        expect(squashes[0].content).to.be.undefined;
+        expect(squashes[1].content).to.be.undefined;
 
         done()
       })
+  })
+
+  describe("GET /:id/content", function() {
+
+    it_("retrieves a squash's content", function* () {
+
+      var squash = yield Squash.create({ title: "My Squash", content: "squish" })
+
+      yield request(app)
+        .get(`/squashes/${squash.id}/content`)
+        .set('Accept', 'text/html')
+        .expect(200)
+        .expect('Content-Type', /text\/html/)
+        .expect(function(res) {
+          expect(res.text).to.equal("squish")
+        })
     })
+
+    it_("returns a 404 when no such squash exists", function* () {
+      yield request(app)
+        .get('/squashes/idontexist/content')
+        .expect(404)
+    })
+  })
 
 
 })
