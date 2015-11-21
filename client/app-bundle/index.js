@@ -4,7 +4,7 @@ var m = require('mithril')
 var User   = require('./models/User');
 var Squash = require('./models/Squash');
 
-var Feed   = require('./components/Feed');
+var Feed   = require('./components/SquashFeed');
 var Profile   = require('./components/Profile');
 var SquashPage = require('./components/SquashPage');
 var NewSquash = require('./components/NewSquash')
@@ -32,7 +32,7 @@ m.route(document.getElementById('app'), '/', {
     },
   },
 
-'/:username/squash': {
+  '/squashes/new': {
     controller: function() {
     },
     view: function(ctrl) {
@@ -78,16 +78,20 @@ m.route(document.getElementById('app'), '/', {
 //hard coded add link for now until username object gets implemented
 function withLayout (content) {
   return m('.app', [
-    m('.add-squash', m('a[href=/alice/squash]', { config: m.route },
-        m('img[src=http://www.clker.com/cliparts/4/K/8/Y/4/8/fly-swatter-md.png]')
-      )),
-    m('.feed-container', [
-      m('h1', m('a[href=/]', { config: m.route }, m('img[src=/SquashLog.png]'))),
+    m('.main-content', [
+      // m('h1', m('a[href=/]', { config: m.route }, m('img[src=/SquashLog.png]'))),
       content,
     ]),
-    m('.sign-in', m('a[href=/auth/github]', [
-      m('p', 'Sign in With Github'),
-      m('img[src=/githubLogo.png]')
-    ]))
+    m('.sidebar', [
+      m('.logo', [
+        m('img', { src: '/bug.png' }),
+        m('h1', m('span', "Squash"), "Log")
+      ]),
+      m('a.button[href=/squashes/new]', { config: m.route }, "New Squash"),
+      m('.sign-in', m('a[href=/auth/github]', [
+        m('img[src=/githubLogo.png]'),
+        m('p', 'Sign in'),
+      ]))
+    ]),
   ]);
 }

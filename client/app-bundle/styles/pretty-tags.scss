@@ -1,0 +1,28 @@
+
+%pretty-tag
+{
+  display: block;
+  & + h2.title .main-tag { display: none }
+}
+
+
+.mti[data-tag=javascript] {
+  @extend %pretty-tag;
+  background-color: #FBE566;
+  position: relative;
+
+  &::before {
+    content: "JS";
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute; right: 0.5rem; bottom: 0rem;
+  }
+}
+
+.mti[data-tag='node.js'] {
+  @extend %pretty-tag;
+  background: url('/tags/nodejs.png') center center no-repeat;
+  background-size: 6rem;
+  position: relative;
+  width: 6rem;
+}

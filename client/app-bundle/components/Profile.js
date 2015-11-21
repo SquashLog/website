@@ -1,7 +1,7 @@
 var m = require('mithril')
 var Squash = require('../models/Squash')
 var User = require('../models/User')
-var Feed = require('./Feed')
+var Feed = require('./SquashFeed')
 
 
 

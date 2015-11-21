@@ -1,0 +1,23 @@
+
+
+.app {
+  @include outer-container;
+}
+
+.main-content {
+  @include span-columns(7);
+}
+
+.sidebar {
+  @include span-columns(5);
+  @include omega();
+
+  position: fixed; top: 0; right: 0; bottom: 0;
+
+  .sign-in {
+    display: block;
+    font-size: 20px;
+    padding-bottom: 50px;
+    margin-top: 5em;
+  }
+}
